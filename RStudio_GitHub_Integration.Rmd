@@ -1,5 +1,5 @@
 ---
-title: "RStudio_GitHub"
+title: "RStudio and GitHub Integration"
 author: "Gianlucca de Urzêda Alves"
 date: "2024-09-24"
 output: html_document
@@ -9,4 +9,68 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# RStudio and GitHub Integration
 
+## STEPS:
+
+### 1. Sign up for GitHub on : <https://github.com>
+
+### 2. Install the package "usethis"
+
+```{r}
+install.packages("usethis")
+```
+
+### 3. Load the package "usethis"
+
+```{r}
+library(usethis)
+```
+
+### 4. Create a Personal Access Token on GitHub
+
+```{r}
+create_github_token()
+```
+
+### 4.1 Insert your Personal Access Token on GitHub
+
+```{r}
+library(gitcreds)
+
+gitcreds_set()
+```
+
+### 5. Local project to GitHub
+
+```{r}
+library(usethis)
+
+use_git()
+
+use_github()
+```
+
+### 6. GitHub repository to Local
+
+6.1 Create a GitHub repository
+
+6.2 Copy the repository URL
+
+6.3 Create a New Project in RStudio
+
+6.3.1 Choose Version Control
+
+6.3.2 Choose Git, and Paste the repository URL into "Repository URL" and Create Project
+
+### 7. Push and Pull Dynamics
+
+Any changes in files or code must be made and acknowledged by the user. The changes must be **tested** first in local, since the files in GitHub are for consultation and direct use, not testing. **IT MUST WORK BEFORE PUSHING.**
+
+Sending untested code or unfinished files might affect other users experience. Changes that break code can be reversed by maintaining version control.
+
+Build something that works, commit and push. If adding new features, pull the code, modify it, change or add new code and test it. Once testing is done and it works, commit and push. If everything crash and burn, return to working version.
+
+Push means send changes in code from local to GitHub.
+
+Pull means grab the most recent code from GitHub and send to local.
